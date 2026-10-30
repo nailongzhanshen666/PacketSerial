@@ -265,6 +265,9 @@ public:
     /// sending, it will send the specified `PacketMarker` defined in the
     /// template parameters.
     ///
+    /// A zero-length packet is encoded and sent with its packet marker.
+    /// The buffer pointer must still be non-null.
+    ///
     ///     // Make an array.
     ///     uint8_t myPacket[2] = { 255, 10 };
     ///
@@ -275,7 +278,7 @@ public:
     /// \param size The number of bytes in the data buffer.
     void send(const uint8_t* buffer, size_t size) const
     {
-        if(_stream == nullptr || buffer == nullptr || size == 0) return;
+        if(_stream == nullptr || buffer == nullptr) return;
 
         uint8_t _encodeBuffer[EncoderType::getEncodedBufferSize(size)];
 

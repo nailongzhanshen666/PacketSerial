@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- None
+- Allow sending zero-length packets with a non-null buffer ([#24](https://github.com/bakercp/PacketSerial/issues/24)).
 
 ### Security
 
